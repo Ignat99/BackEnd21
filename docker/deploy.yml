@@ -1,0 +1,21 @@
+version: '2'
+services:
+  backend21:
+    command: "bash docker/start.sh"
+    environment:
+      - SQL_HOST=mysql.service
+      - ENV=development
+      - DB_URL=jdbc:mysql://mysql.service:3306/backend21
+      - DB_USER=test
+      - DB_PASS=test
+      - DB_PORT=3306
+      - FRONTEND_HOST=localhost
+      - FRONTEND_PORT=8080
+      - TWITTER2RABBIT_HOST=localhost
+      - TWITTER2RABBIT_PORT=8080
+      - ELASTIC_HOST=elastictest.service
+      - ELASTIC_PORT=9300
+      - ELASTIC_INDEX=demo
+      - ELASTIC_INDEX_TYPE=tweet
+    ports:
+      - 8080:8080

@@ -1,0 +1,1 @@
+insert ignore into user (id, username, email, password, name, surname) values ("666", "ignat99", "ignat99@gmail.com", "$2a$10$cNb7QW4aaL473DMRl6RjTe48l5Gm74kfCsKPcFAD8UVVfv8FzxmjK", "ignat", "99");

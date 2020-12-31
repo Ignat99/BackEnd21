@@ -1,0 +1,1 @@
+DELETE FROM system_alert where id in (6,7,8,9);

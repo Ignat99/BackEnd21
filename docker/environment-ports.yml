@@ -1,0 +1,14 @@
+version: '2'
+services:
+  database:
+    ports:
+      - 3306:3306
+
+  elasticsearch:
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+  kibana:
+    ports:
+      - 5601:5601

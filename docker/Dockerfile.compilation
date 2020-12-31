@@ -1,0 +1,12 @@
+FROM openjdk:8u151
+RUN apt-get update && apt-get install -y mysql-client && apt-get clean
+ENV APP_HOME=/var/app/
+RUN mkdir -p $APP_HOME/src/main/java
+WORKDIR $APP_HOME
+COPY build.gradle gradlew gradlew.bat $APP_HOME
+COPY gradle $APP_HOME/gradle
+COPY .m2cache /root/.gradle/caches/modules-2/files-2.1
+RUN ./gradlew build -x :bootRepackage -x test --continue
+COPY . .
+RUN ./gradlew build -x test
+#RUN ./gradlew sonarqube -Dsonar.host.url=http://18.202.76.77:9000/sonar -Dsonar.login=f525d325c00f91f5f09fd2223652bea42d89f991

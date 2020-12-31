@@ -1,0 +1,43 @@
+## Default Elasticsearch configuration from elasticsearch-docker.
+## from https://github.com/elastic/elasticsearch-docker/blob/master/build/elasticsearch/elasticsearch.yml
+#
+cluster.name: "docker-cluster"
+network.host: 0.0.0.0
+transport.host: 127.0.0.1
+
+# minimum_master_nodes need to be explicitly set when bound on a public IP
+# set to 1 to allow single node clusters
+# Details: https://github.com/elastic/elasticsearch/pull/17288
+discovery.zen.minimum_master_nodes: 1
+
+## Use single node discovery in order to disable production mode and avoid bootstrap checks
+## see https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
+#
+discovery.type: single-node
+
+## Disable X-Pack
+## see https://www.elastic.co/guide/en/x-pack/current/xpack-settings.html
+##     https://www.elastic.co/guide/en/x-pack/current/installing-xpack.html#xpack-enabling
+#
+# docker run -d -p 9200:9200 --name elasticsearch -e "http.host=0.0.0.0" -e "transport.host=127.0.0.1" -e "xpack.security.enabled=false" docker.elastic.co/elasticsearch/elasticsearch:5.2.2
+
+#xpack.watcher.enabled: false
+xpack.security.enabled: false
+#xpack.monitoring.enabled: false
+#xpack.ml.enabled: false
+#xpack.graph.enabled: false
+#xpack.reporting.enabled: false
+#xpack.grokdebugger.enabled: false
+
+#cluster.routing.allocation.disk.threshold_enabled: true
+#cluster.routing.allocation.disk.watermark.low: '.97'
+#cluster.routing.allocation.disk.watermark.high: '.99'
+
+#indices.breaker.fielddata.limit: "85%"
+#indices.breaker.total.limit: "90%"
+#indices.fielddata.cache.size: "75%"
+
+#action.auto_create_index: true
+
+#node.master: true
+#node.data: true

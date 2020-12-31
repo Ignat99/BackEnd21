@@ -1,0 +1,36 @@
+version: '2'
+services:
+  database:
+    container_name: mysql-backend21
+    image: mysql:5.7.21
+    environment:
+      - MYSQL_DATABASE=backend21
+      - MYSQL_ROOT_PASSWORD=test
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=test
+    networks:
+      default:
+        aliases:
+          - mysql.service
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.6.15
+    volumes:
+      - ./config/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    environment:
+      ES_JAVA_OPTS: "-Xmx2g -Xms2g"
+    networks:
+      default:
+        aliases:
+          - elasticsearch.service
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:5.6.15
+    volumes:
+      - ./config/kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
+    environment:
+      - ELASTICSEARCH_URL=http://elastictest.service:9200
+    ports:
+      - 5601:5601
+    depends_on:
+      - elasticsearch

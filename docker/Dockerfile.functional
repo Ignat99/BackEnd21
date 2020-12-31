@@ -1,0 +1,2 @@
+#FROM 396648463862.dkr.ecr.eu-west-1.amazonaws.com/apium-jmeter-4.0:0.0.4
+#COPY src/test/functional/functional-example.jmx /input/test.jmx

@@ -1,0 +1,3 @@
+
+ALTER TABLE project ADD active TINYINT NOT NULL DEFAULT 1;
+

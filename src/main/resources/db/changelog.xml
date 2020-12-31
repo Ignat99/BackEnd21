@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/user.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+    <changeSet id="2" author="raya" context="development, staging, qa, production">
+        <sqlFile path="scripts/dummy_user.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+    <changeSet id="3" author="raya" context="development, staging, qa, production">
+        <sqlFile path="scripts/oauth.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+    <changeSet id="4" author="raya" context="test">
+        <sqlFile path="scripts/project.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+    <changeSet id="5" author="raya" context="development, staging, qa, production">
+        <sqlFile path="scripts/project_coll.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+    <changeSet id="6" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/add_created_field_user.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+    <changeSet id="7" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/add_owner_field_project.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+    <changeSet id="8" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/add_type_field_project.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+
+    <changeSet id="9" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/change_created_name_project_table.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+    <changeSet id="10" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/add_active_field_project.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+    <changeSet id="11" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/add_lower_name_and_description_fields_project.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+    <changeSet id="12" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/user_timeframe.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+    <changeSet id="13" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/project_time_frame.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+    <changeSet id="14" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/user_alert.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+    <changeSet id="15" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/add_active_field_and_email_flag_user_alert_and_type.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+    <changeSet id="16" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/system_alert.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+    <changeSet id="17" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/project_alert_execution.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+    <changeSet id="18" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/add_read_field_project_alert_execution.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+    <changeSet id="19" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/add_from_to_fields_project_alert_execution.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+
+    <changeSet id="20" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/add_archived_field_project_alert_execution.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+    <changeSet id="21" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/api_log.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+    <changeSet id="22" author="raya" context="test, development, staging, qa, production">
+        <sqlFile path="scripts/add_method_field_api_log.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+    <changeSet id="23" author="raya" context="development, staging, qa, production">
+        <sqlFile path="scripts/add_initial_user.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+    <changeSet id="24" author="raya" context="test,development, staging, qa, production">
+        <sqlFile path="scripts/delete_system_alerts.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+    <changeSet id="25" author="raya" context="test,development, staging, qa, production">
+        <sqlFile path="scripts/flag.sql" relativeToChangelogFile="true" splitStatements="true" encoding="UTF-8"/>
+    </changeSet>
+
+</databaseChangeLog>

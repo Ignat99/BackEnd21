@@ -1,0 +1,10 @@
+version: '2'
+services:
+  database:
+    volumes:
+          - './environment/backend21/development/mysql/data:/var/lib/mysql'
+
+  elasticsearch:
+    volumes:
+          - './environment/backend21/development/elasticsearch/es_volume:/usr/share/elasticsearch/data'
+

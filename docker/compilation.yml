@@ -1,0 +1,13 @@
+version: '2'
+services:
+  backend21:
+    image: ${IMAGENAME}
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.compilation
+    environment:
+      - SQL_HOST=mysql.service
+    command: "bash docker/runTests.sh"
+    depends_on:
+      - database
+      - elasticsearch

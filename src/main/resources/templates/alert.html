@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type"  content="text/html charset=UTF-8" />
+    <title>Solicitud de información en trámite</title>
+    <style>
+        .main-text:link{width:500px;height:290px;color:#666666;font-family:Avenir;font-size:16px;font-weight:300;letter-spacing:0.2px;line-height:30px}
+        a:link{color:#666666;font-family:Avenir}
+    </style>
+</head>
+
+<body>
+<div style="background-color:#00b0ad;padding: 70px 0px 0px 80px;height:900px;width:690px;">
+    <div class="main-container" style="width:600px;height:567px;border-radius:2px;background-color:#ffffff;padding:70px 0px 0px 0px;">
+        <div class="header" style='width:107px;height:34px;color:#000000;font-family:"Plantin Std";padding:0px 0px 70px 50px;font-size:17px;font-weight:400;letter-spacing:0.21px;'>
+            <img src="${frontendUrl}/img/b_logo_green.png" height="34" width="38"/><br>
+            Se ha producido la siguiente alerta: ${alias} con los parámetros: ${extravars} en la fecha: ${date}
+        </div>
+        <div class="main-text" style="width:500px;height:290px;color:#666666;padding:0px 0px 0px 50px;font-family:Avenir;font-size:16px;font-weight:300;letter-spacing:0.2px;line-height:30px;">
+            <p>Más datos:</p>
+            <p>Proyecto: ${projectName}</p>
+            <p>url: ${alertUrl}</p>
+            <br>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

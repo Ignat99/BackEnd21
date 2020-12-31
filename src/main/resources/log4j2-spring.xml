@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<Configuration>
+   <Properties>
+     <Property name="defaultpattern">logdate=(%d{ISO8601}) thread=(%thread)) level=(%level) loggerclass=(%logger{36}) message=(%msg)%n</Property>
+   </Properties>
+   <Appenders>
+     <Console name="Console" target="SYSTEM_OUT">
+       <PatternLayout
+           pattern="[log4j] %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"/>
+     </Console>
+     <Socket name="logstash" host="logstash" port="5000">
+       <PatternLayout pattern="[log4j] ${defaultpattern}" charset="UTF-8" />
+     </Socket>
+   </Appenders>
+   <Loggers>
+     <!-- LOG everything at INFO level -->
+     <Root level="info">
+       <AppenderRef ref="Console" />
+       <AppenderRef ref="logstash" />
+     </Root>
+     <!-- LOG "backend21.*" at TRACE level -->
+     <Logger name="backend21.infrastructure.repositories" level="trace">
+     </Logger>
+   </Loggers>
+</Configuration>

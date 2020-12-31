@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration monitorInterval="60">
+<properties>
+    <property name="defaultpattern">logdate=(%d{ISO8601}) thread=(%thread)) level=(%level) loggerclass=(%logger{36}) message=(%msg)%n</property>
+</properties>
+<appenders>
+    <RollingFile name="A1"
+                 fileName="${sys:storm.log.dir}/${sys:logfile.name}"
+                 filePattern="${sys:storm.log.dir}/${sys:logfile.name}.%i.gz">
+        <PatternLayout>
+            <pattern>${defaultpattern}</pattern>
+        </PatternLayout>
+        <Policies>
+            <SizeBasedTriggeringPolicy size="100 MB"/> <!-- Or every 100 MB -->
+        </Policies>
+        <DefaultRolloverStrategy max="9"/>
+    </RollingFile>
+    <RollingFile name="METRICS"
+                 fileName="${sys:storm.log.dir}/${sys:logfile.name}.metrics"
+                 filePattern="${sys:storm.log.dir}/${sys:logfile.name}.metrics.%i.gz">
+        <PatternLayout>
+            <pattern>${defaultpattern}</pattern>
+        </PatternLayout>
+        <Policies>
+            <SizeBasedTriggeringPolicy size="2 MB"/>
+        </Policies>
+        <DefaultRolloverStrategy max="9"/>
+    </RollingFile>
+    <Socket name="logstash" host="logstash" port="5000">
+    <PatternLayout pattern="[log4j] ${defaultpattern}" charset="UTF-8" />
+    </Socket>
+    <Async name="LogstashAsync" bufferSize="204800">
+      <AppenderRef ref="logstash" />
+    </Async>
+</appenders>
+<loggers>
+    <root level="INFO">
+        <appender-ref ref="A1"/>
+        <appender-ref ref="LogstashAsync"/>
+    </root>
+    <Logger name="METRICS_LOG" level="info" additivity="false">
+        <appender-ref ref="METRICS"/>
+        <appender-ref ref="LogstashAsync"/>
+    </Logger>
+</loggers>
+</configuration>
